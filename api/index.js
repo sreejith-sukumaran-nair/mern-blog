@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
 
+
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL).then(() => console.log("MongoDB is connected successfully")).catch((error) => console.log(error))
@@ -11,6 +12,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => console.log("MongoDB is conne
 const app = express();
 
 app.use(express.json())
+
 
 
 
