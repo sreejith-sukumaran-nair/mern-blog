@@ -58,7 +58,7 @@ function SignUp() {
             Blog
           </Link>
           <p className="text-sm mt-5">
-            This is a demo project, You can sign in with email and password or with google
+            This is a demo project, You can sign up with email and password or with google
           </p>
         </div>
         {/* right div */}
