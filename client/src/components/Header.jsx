@@ -2,11 +2,13 @@ import React from 'react'
 import { Button, Navbar, TextInput } from "flowbite-react";
 import { Link , useLocation } from 'react-router-dom';
 import {AiOutlineSearch} from 'react-icons/ai';
-import {FaMoon} from 'react-icons/fa'
+import {FaMoon} from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 
 function Header() {
   const path = useLocation().pathname
+  const currentUser = useSelector((state) => state.user.currentUser)
   return (
     <>
     <Navbar className='border-b-2'>
@@ -41,6 +43,9 @@ function Header() {
           </Navbar.Link>
           <Navbar.Link as={'div'} active = {path === '/projects'}>
             <Link to={'/projects'}>Projects</Link>
+          </Navbar.Link>
+          <Navbar.Link as={'div'} active = {path === '/projects'}>
+            <Link to={'/projects'}>{currentUser.username}</Link>
           </Navbar.Link>
         </Navbar.Collapse>
     </Navbar>
