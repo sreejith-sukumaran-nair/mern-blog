@@ -4,9 +4,11 @@ import { Sidebar } from "flowbite-react";
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from "react-icons/hi";
 import { Link, useLocation } from 'react-router-dom';
 
+
 function DashSidebar() {
   const location = useLocation();
   const [tab,setTab] = useState('');
+  
   
   useEffect(()=> {
     const urlParams = new URLSearchParams(location.search);

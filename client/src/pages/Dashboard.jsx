@@ -22,7 +22,7 @@ function Dashboard() {
         <DashSidebar/>
       </div>
       {/* porfile side */}
-      <div className="">
+      <div className="w-full">
         {tab === 'profile' && <DashProfile/> }
       </div>
     </div>
