@@ -36,7 +36,7 @@ function Header() {
           <AiOutlineSearch />
         </Button>
         <div className="flex gap-2 md:order-2">
-          <Button onClick={()=>dispatch(toggleTheme())} className="w-12 h-12 hidden sm:inline" pill color={"gray"}>
+          <Button onClick={()=>dispatch(toggleTheme())} className="w-12 h-10 hidden sm:inline" pill color={"gray"}>
             {theme === "light" ? <FaMoon/> : <FaSun/>}
           </Button>
           {currentUser? (
