@@ -9,7 +9,6 @@ function Dashboard() {
   
   useEffect(()=> {
     const urlParams = new URLSearchParams(location.search);
-    console.log(urlParams)
     const tabFromURL = urlParams.get('tab');
     if(tabFromURL){
       setTab(tabFromURL)

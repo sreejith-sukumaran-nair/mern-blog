@@ -12,18 +12,17 @@ function DashSidebar() {
   
   useEffect(()=> {
     const urlParams = new URLSearchParams(location.search);
-    console.log(urlParams)
     const tabFromURL = urlParams.get('tab');
     if(tabFromURL){
       setTab(tabFromURL)
     }
   },[location.search])
   return (
-    <Sidebar className="w-full md:w-56">
+    <Sidebar className="w-full md:w-56 shadow-md">
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           <Link to={'/dashboard?tab=profile'}>
-          <Sidebar.Item active = {tab ==='profile'} href="#" icon={HiUser} label = "User" labelColor='dark'>
+          <Sidebar.Item as = "div"  active = {tab ==='profile'} href="#" icon={HiUser} label = "User" labelColor='dark'>
             Profile
           </Sidebar.Item>
           </Link>
