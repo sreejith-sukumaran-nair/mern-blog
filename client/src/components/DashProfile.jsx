@@ -83,7 +83,6 @@ function DashProfile() {
               'position' : 'absolute',
               'top' : '0' ,
               'bottom' : '0' ,
-              
             },
             path : {
               stroke : `rgba(100,255,100, ${imageFileUploadProgress/100})`

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.routes.js';
 import authRoutes from './routes/auth.routes.js';
+import cookieParser from 'cookie-parser';
 
 
 dotenv.config();
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL).then(() => console.log("MongoDB is conne
 const app = express();
 
 app.use(express.json())
+app.use(cookieParser())
 
 
 
