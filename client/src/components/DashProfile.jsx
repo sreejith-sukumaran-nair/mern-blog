@@ -21,7 +21,8 @@ import {
   updateSuccess,
   deleteUserSuccess ,
   deleteUserFailure , 
-  deleteUserStart
+  deleteUserStart,
+  signoutSuccess
 } from "../redux/user/userSlice";
 
 function DashProfile() {
@@ -149,6 +150,25 @@ function DashProfile() {
     }
   }
 
+  const handleSignout = async() => {
+    try {
+      const res = await fetch('/api/user/signout' , {
+        method : 'POST' ,
+      });
+      const data = await res.json();
+      if(!res.ok){
+        console.log(data.message)
+      }else{
+        dispatch(signoutSuccess())
+        localStorage.removeItem('currentUserInLoacalStorage')
+      }
+
+    } catch (error) {
+      console.log(error.message)
+      
+    }
+  }
+
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
       <h1 className="my-7 text-center text-3xl font-extralight">Profile</h1>
@@ -247,7 +267,7 @@ function DashProfile() {
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
           Delete Account
         </span>
-        <span className="cursor-pointer">Sign out</span>
+        <span onClick={handleSignout} className="cursor-pointer">Sign out</span>
       </div>
       {updateUserSuccess && (
         <Alert color="success" className="mt-5">
