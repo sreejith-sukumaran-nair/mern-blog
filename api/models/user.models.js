@@ -19,6 +19,10 @@ const userSchema = new mongooose.Schema({
     type : String ,
     default : "https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" ,
   },
+  isAdmin : {
+    type : Boolean ,
+    default : false ,
+  }
 },{ timestamps : true });
 
 const User = mongooose.model("User" , userSchema );
