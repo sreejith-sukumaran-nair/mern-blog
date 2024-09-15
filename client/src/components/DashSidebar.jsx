@@ -5,11 +5,13 @@ import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, Hi
 import { Link, useLocation } from 'react-router-dom';
 import { signoutSuccess } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 function DashSidebar() {
   const location = useLocation();
   const [tab,setTab] = useState('');
+  const {currentUser} = useSelector((state) => state.user)
 
   const dispatch = useDispatch()
   
@@ -45,7 +47,7 @@ function DashSidebar() {
       <Sidebar.Items>
         <Sidebar.ItemGroup className='flex flex-col gap-1'>
           <Link to={'/dashboard?tab=profile'}>
-          <Sidebar.Item as = "div"  active = {tab ==='profile'} href="#" icon={HiUser} label = "User" labelColor='dark'>
+          <Sidebar.Item as = "div"  active = {tab ==='profile'} href="#" icon={HiUser} label = {currentUser?.isAdmin ? 'Admin' : 'User'} labelColor='dark'>
             Profile
           </Sidebar.Item>
           </Link>

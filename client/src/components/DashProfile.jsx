@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 import { app } from "../firebase";
 
@@ -26,7 +27,7 @@ import {
 } from "../redux/user/userSlice";
 
 function DashProfile() {
-  const { currentUser , error } = useSelector((state) => state.user);
+  const { currentUser , error ,loading } = useSelector((state) => state.user);
   const [imageFile, setImageFile] = useState(null);
   const [imageFileURL, setImageFileURL] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
@@ -259,9 +260,25 @@ function DashProfile() {
           type="submit"
           gradientDuoTone={"purpleToBlue"}
           outline
+          disabled = {loading || imageFileUploading}
         >
-          Update
+          {loading ? 'loading...' : 'Update'}
         </Button>
+        {
+          currentUser.isAdmin && 
+          <>
+          <Link to={'/create-post'}>
+          <Button
+          className="mt-8 w-full"
+          type="button"
+          gradientDuoTone={"purpleToPink"}
+          outline
+        >
+          Create a post
+        </Button>
+          </Link>
+          </>
+        }
       </form>
       <div className="text-red-500 flex justify-between my-5">
         <span onClick={() => setShowModal(true)} className="cursor-pointer">
