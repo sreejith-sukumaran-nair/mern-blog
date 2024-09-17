@@ -221,7 +221,7 @@ function DashProfile() {
         )}
 
         <div>
-          <div className="mb-2 block ml-[1000px]">
+          <div className="mb-2 block ml-[10000000px]">
             <Label htmlFor="username" value="Username" />
           </div>
           <TextInput
@@ -233,7 +233,7 @@ function DashProfile() {
           />
         </div>
         <div>
-          <div className="mb-2 block ml-[1000px]">
+          <div className="mb-2 block ml-[10000000px]">
             <Label htmlFor="email" value="Email" />
           </div>
           <TextInput
@@ -245,7 +245,7 @@ function DashProfile() {
           />
         </div>
         <div>
-          <div className="mb-2 block ml-[1000px]">
+          <div className="mb-2 block ml-[10000000px]">
             <Label htmlFor="password" value="password" />
           </div>
           <TextInput
